@@ -1,0 +1,18 @@
+Create OR Replace Procedure getStudentDetails IS
+
+	CURSOR stud_cur is 
+		select * from student;
+stu stud_cur%rowtype;
+
+BEGIN
+	FOR stu in stud_cur
+		LOOP
+			DBMS_OUTPUT.PUT_LINE('========================');
+			DBMS_OUTPUT.PUT_LINE('Name is ' || stu.studName);
+			DBMS_OUTPUT.PUT_LINE('Phone is ' || stu.phone);
+			DBMS_OUTPUT.PUT_LINE('Address is ' || stu.Address);
+			DBMS_OUTPUT.PUT_LINE('Dept No is ' || stu.DeptNo);
+			DBMS_OUTPUT.PUT_LINE('========================');
+		END LOOP;
+END getStudentDetails;
+/

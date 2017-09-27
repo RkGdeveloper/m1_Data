@@ -1,0 +1,10 @@
+Create OR Replace Procedure getStudentDetails(sid Student.studNo%TYPE) IS
+Stu_details Student%ROWTYPE;
+BEGIN
+	select * into stu_details from Student where studno = sid;
+	DBMS_OUTPUT.PUT_LINE('Name is ' || stu_details.studName);
+	DBMS_OUTPUT.PUT_LINE('Phone is ' || stu_details.phone);
+	DBMS_OUTPUT.PUT_LINE('Address is ' || stu_details.Address);
+	DBMS_OUTPUT.PUT_LINE('Dept No is ' || stu_details.DeptNo);
+END getStudentDetails;
+/
